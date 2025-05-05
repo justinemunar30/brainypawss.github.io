@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrainyPaws - Quiz about the Philippines</title>
+  <!-- Import external CSS -->
+  <link rel="stylesheet" href="style75and90.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <img src="brainypaws_pic.png" alt="BrainyPaws Logo" />
+  <div>
+    <a href="/Users/justinekiethmeimunar/Desktop/index.html" style="text-decoration: none;">
+      <button class="hamburger-btn">Home</button>
+    </a>
+  </div>
+</header>
+
+<div class="container">
+  <h1>BrainyPaws - Let's get to know more about the Philippines! Answer the questions below:</h1>
+  <form id="quizForm">
+    
+    <h2 class="category-title"><strong>Easy</strong></h2>
+    <div id="easy-questions"></div>
+    
+    <h2 class="category-title"><strong>Moderate</strong></h2>
+    <div id="moderate-questions"></div>
+    
+    <h2 class="category-title"><strong>Hard</strong></h2>
+    <div id="hard-questions"></div>
+    
+    <button type="button" class="finish-btn" onclick="calculateScore()">I'm done!</button>
+    <p id="scoreResult"></p>
+  </form>
+</div>
+
+<footer>
+  2025 BRAINYPAWS. All rights reserved.
+</footer>
+
+<!-- At the end of your <body> -->
+  <script src="script90.js"></script>
+</body>
+</html>

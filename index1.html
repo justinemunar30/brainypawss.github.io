@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrainyPaws Quiz Setup</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap');
+
+    /* Global Styles */
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #FFF7E6;
+      margin: 0;
+      padding-top: 80px; /* Space for fixed header */
+      padding-bottom: 60px; /* Space for fixed footer */
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Bubbly background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(#FFDFB9 10%, transparent 11%);
+      background-size: 30px 30px;
+      opacity: 0.4;
+      z-index: -1;
+    }
+
+    /* Header */
+    header {
+      width: 100%;
+      padding: 10px 20px;
+      background-color: #FFFAF0;
+      border-bottom: 4px solid #FFD08A;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      width: 50px;
+      height: 50px;
+      border-radius: 90px;
+      filter: drop-shadow(5px 6px 8px rgba(0,0,0,1));
+    }
+
+    header a {
+      text-decoration: none;
+    }
+
+    header button {
+      padding: 8px 16px;
+      background-color: #FFBC70;
+      border: none;
+      border-radius: 20px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1em;
+    }
+
+    header button:hover {
+      background-color: #FFA94D;
+    }
+
+    /* Main Container */
+    .container {
+      flex: 1;
+      max-width: 600px;
+      background: #FFFAF0;
+      padding: 30px;
+      margin: 20px auto;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      border: 4px solid #FFD08A;
+      filter: drop-shadow(5px 6px 8px rgba(0,0,0,0.6));
+      text-align: center;
+      position: relative;
+    }
+
+    .container img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 90px;
+      margin-bottom: 20px;
+      filter: drop-shadow(5px 6px 8px rgba(0,0,0,1));
+      animation: pop 0.7s ease-in-out;
+    }
+
+    h1 {
+      font-family: 'Fredoka One', cursive;
+      color: #594236;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #7D6B5A;
+      font-size: 1.2em;
+    }
+
+    label {
+      color: #594236;
+      font-size: 1.1em;
+      display: block;
+      margin: 10px 0;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1em;
+      border: 2px solid #FFD08A;
+      border-radius: 10px;
+      margin: 10px 0;
+      width: 80%;
+      max-width: 250px;
+    }
+
+    /* Quiz Type Grid */
+    .quiz-type-grid {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .quiz-type-grid a {
+      display: block;
+      padding: 15px;
+      border: none;
+      border-radius: 15px;
+      background-color: #FFBC70;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.2em;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 45%;
+    }
+
+    .quiz-type-grid a:hover {
+      background-color: #FFA94D;
+      transform: scale(1.05);
+      animation: bounce 0.5s ease-in-out;
+    }
+
+    /* Selected quiz type */
+    .quiz-type-grid a.selected {
+      background-color: #E08A40;
+      transform: scale(1.2);
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      padding: 10px;
+      background-color: #FFFAF0;
+      border-top: 4px solid #FFD08A;
+      text-align: center;
+      font-size: 0.9em;
+      color: #594236;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    /* Animations */
+    @keyframes pop {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes bounce {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="brainypaws_pic.png" alt="BrainyPaws Logo">
+    <a href="/Users/justinekiethmeimunar/Desktop/index.html">
+      <button>Home</button>
+    </a>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <img src="brainypaws_pic.png" alt="BrainyPaws Logo">
+    <h1>BrainyPaws!</h1>
+    <p>Know more about the Philippines!</p>
+    
+    <label>
+      Nickname:
+      <br>
+      <input type="text" id="nickname" placeholder="Enter nickname">
+    </label>
+
+    <p>Choose Quiz Type:</p>
+    <div class="quiz-type-grid">
+      <a id="link-filipino" href="/Users/justinekiethmeimunar/Downloads/index2.html" onclick="return handleQuizTypeClick(event, 'filipino', this)">Filipino</a>
+      <a id="link-english" href="/Users/justinekiethmeimunar/Downloads/index3.html" onclick="return handleQuizTypeClick(event, 'english', this)">English</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    2025 BRAINYPAWS. All rights reserved.
+  </footer>
+
+  <script>
+    function handleQuizTypeClick(event, type, element) {
+      const nickname = document.getElementById('nickname').value.trim();
+      if (!nickname) {
+        alert("Please enter your nickname before selecting a quiz type.");
+        event.preventDefault();
+        return false;
+      }
+      document.querySelectorAll(".quiz-type-grid a").forEach(a => a.classList.remove("selected"));
+      element.classList.add("selected");
+      let url = element.getAttribute("href");
+      url += `?nickname=${encodeURIComponent(nickname)}`;
+      element.setAttribute("href", url);
+      return true;
+    }
+  </script>
+
+</body>
+</html>

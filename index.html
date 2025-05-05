@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BrainyPaws - Welcome!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap');
+
+    /* Base body styling */
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #FFF7E6;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Bubbly background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(#FFDFB9 10%, transparent 11%);
+      background-size: 30px 30px;
+      opacity: 0.4;
+      z-index: -1;
+    }
+
+    /* Header styles */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #FFFAF0;
+      border-bottom: 4px solid #FFD08A;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 999;
+    }
+    header img {
+      width: 50px;
+      height: 50px;
+      border-radius: 90px;
+      filter: drop-shadow(5px 6px 8px rgba(0,0,0,1));
+    }
+    .hamburger-btn {
+      padding: 8px 16px;
+      background-color: #FFBC70;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+    }
+    .hamburger-btn:hover {
+      background-color: #FFA94D;
+    }
+    .bar {
+      width: 25px;
+      height: 3px;
+      margin: 3px 0;
+      background-color: #fff;
+      transition: 0.3s;
+    }
+
+    /* Main content wrapper */
+    main {
+      flex: 1;
+      padding: 100px 20px 80px; /* Top padding for header, bottom padding for footer */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Container (BrainyPaws box) */
+    .container {
+      background: #FFFAF0;
+      max-width: 600px;
+      width: 100%;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      border: 4px solid #FFD08A;
+      filter: drop-shadow(5px 6px 8px rgba(0,0,0,0.6));
+      text-align: center;
+      animation: pop 0.7s ease-in-out;
+    }
+    .container img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 90px;
+      margin-bottom: 20px;
+      filter: drop-shadow(5px 6px 8px rgba(0,0,0,1));
+    }
+    h1 {
+      font-family: 'Fredoka One', cursive;
+      color: #594236;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #7D6B5A;
+      font-size: 1.2em;
+    }
+    a button {
+      padding: 12px 30px;
+      margin-top: 20px;
+      font-size: 1em;
+      cursor: pointer;
+      background-color: #FFBC70;
+      border: none;
+      border-radius: 30px;
+      color: #fff;
+      font-weight: bold;
+      transition: 0.3s;
+      animation: float 3s ease-in-out infinite;
+    }
+    a button:hover {
+      background-color: #FFA94D;
+    }
+
+    /* Footer styles */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #FFFAF0;
+      border-top: 4px solid #FFD08A;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #594236;
+      box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
+      z-index: 999;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    .modal-content {
+      background-color: #FFFAF0;
+      border: 3px solid #FFD08A;
+      border-radius: 20px;
+      margin: 10% auto;
+      padding: 20px;
+      width: 60%;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .modal-content h2 {
+      font-family: 'Fredoka One', cursive;
+      color: #594236;
+    }
+    .modal-content p {
+      color: #7D6B5A;
+    }
+    .close-btn {
+      background-color: #FFBC70;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 30px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close-btn:hover {
+      background-color: #FFA94D;
+    }
+
+    /* Animations */
+    @keyframes pop {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="brainypaws_pic.png" alt="BrainyPaws Logo" />
+    <button id="menuBtn" class="hamburger-btn">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </button>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <div class="container">
+      <img src="brainypaws_pic.png" alt="BrainyPaws Logo">
+      <h1>Welcome to BrainyPaws!</h1>
+      <p>Test your knowledge about the Philippines with our fun and exciting quiz!</p>
+      <a href="/Users/justinekiethmeimunar/Downloads/index1.html"><button>Start Quiz!</button></a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    2025 BRAINYPAWS. All rights reserved.
+  </footer>
+
+  <!-- Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <h2>What is BrainyPaws?</h2>
+      <p>BrainyPaws is an engaging and educational quiz platform focused on enhancing one's knowledge of Philippine history. It covers important topics such as national heroes, cultural practices, and significant historical events. The quiz is structured into three levels of difficulty: Easy with 5 questions, Moderate with 10, and Hard with 15, allowing users to progress based on their familiarity with the subject. One of its key features is the option to choose between English or Tagalog, making the experience more accessible and comfortable for a wider audience. Overall, BrainyPaws offers a fun and flexible way to learn about the rich history of the Philippines.</p>
+      <button class="close-btn" onclick="closeModal()">Got it!</button>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("myModal");
+    const menuBtn = document.getElementById("menuBtn");
+
+    menuBtn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
